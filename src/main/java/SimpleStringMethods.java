@@ -1,20 +1,11 @@
 
-/**
- * Strings are a special type of Object in Java that represent text, and they are stored a bit differently -
- * even though they are Objects, we don't need to use a constructor to instantiate them.
- *
- * Strings are actually immutable, which means that changing a string actually generates a brand new String,
- * and creating a new string that is the same as an already-existing string will just reuse the old String in memory.
- * 
- * Official String documentation: https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
- */
 public class SimpleStringMethods {
     /**
      * @param s the String to be manipulated.
      * @return the length of string s.
      */
     public int getStringLength(String s){
-        return 0;
+        return s.length();
     }
 
     /**
@@ -24,7 +15,11 @@ public class SimpleStringMethods {
      * @return the character of String s that is located at position n.
      */
     public char getCharacterAtIndex(String s, int n){
-        return ' ';
+        if (n >= 0 && n < s.length()) {
+            return s.charAt(n);
+        } else {
+            throw new IndexOutOfBoundsException("Index " + n + " out of bounds for string of length " + s.length());
+        }
     }
 
     /**
@@ -33,10 +28,9 @@ public class SimpleStringMethods {
      * it returns -1 if the character does not exist.
      * @param s the String to be manipulated.
      * @param c a character within s.
-     * @return the index of the first occurence of c within s.
+     * @return the index of the first occurrence of c within s.
      */
     public int getIndexGivenCharacter(String s, char c){
-        return 0;
+        return s.indexOf(c);
     }
-
 }
